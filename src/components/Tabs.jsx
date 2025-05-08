@@ -1,5 +1,5 @@
 'use client';
-import {motion } from 'framer-motion';
+import {AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { PhoneCall } from 'lucide-react';
 import tab1 from '../assets/tab1.png';
@@ -150,6 +150,7 @@ const Tabs = () => {
       );
       setFilteredServices(filtered);
     }
+    
   }, [activeCategory]);
 
   return (
@@ -203,6 +204,7 @@ const Tabs = () => {
 
         {/* Service Cards */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+         <AnimatePresence>
           {filteredServices.length > 0 ? (
             filteredServices.map((service) => (
               <motion.div
@@ -294,6 +296,7 @@ const Tabs = () => {
               <p>No services available for this category yet.</p>
             </div>
           )}
+         </AnimatePresence>
         </div>
         <NeedHelp />
         <RatingCards />
