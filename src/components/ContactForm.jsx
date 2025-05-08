@@ -45,7 +45,7 @@ const ContactForm = () => {
 
   return (
     <div id='contact' className=' scroll-smooth bg-[#C40716] relative mt-8 '>
-      <div className='  Mycontainer grid md:grid-cols-2 lg:gap-28 md:gap-10 items-center pt-12 md:pt-20 '>
+      <div className='overflow-x-hidden  Mycontainer grid md:grid-cols-2 lg:gap-28 md:gap-10 items-center pt-12 md:pt-20 '>
         {/* Left Section */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -186,7 +186,7 @@ const ContactForm = () => {
 
         {/* Right Section - Form */}
         <motion.div
-          initial={{ x: 60, opacity: 0 }}
+          initial={{ x: 200, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.3 }}
