@@ -1,10 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
 import "./globals.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Head from "next/head";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,7 +18,6 @@ export const metadata = {
   title: 'Fatest Car Tyre Repair & Mobile Tyre Service in Dubai | Fast Response',
   description:
     '24/7 emergency car tyre repair, mobile tyre replacement, and onsite flat tyre services across Dubai. Fast response within 20 minutes! Professional tyre services at your location.',
-  viewport: 'width=device-width, initial-scale=1.0',
   alternates: {
     canonical: 'https://www.car-tyre-repair.com/',
   },
@@ -52,12 +50,16 @@ export const metadata = {
     'mobile tyre change Dubai',
   ],
   robots: 'index, follow',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1.0,
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`scroll-smooth ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+      <body className={`scroll-smooth ${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <ToastContainer position="top-center" autoClose={3000} />
       </body>
