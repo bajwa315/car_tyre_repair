@@ -111,7 +111,7 @@ const ServiceCards = () => {
                 initial={{ rotateY: -90, opacity: 0 }}
                 whileInView={{ rotateY: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.6 }}
+                viewport={{ once: true, amount: 0.9 }}
               >
                 <div className='bg-white text-black rounded-md overflow-hidden shadow-md border-[#C40716] border-t-4 hover:scale-105 ease-in-out transition-all duration-500 '>
                   <div className='p-4 '>

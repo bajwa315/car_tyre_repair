@@ -1,5 +1,5 @@
 'use client';
-import {AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { PhoneCall } from 'lucide-react';
 import tab1 from '../assets/tab1.png';
@@ -59,7 +59,7 @@ const allServices = [
     ],
     buttons: [
       { text: 'Call Now', icon: 'phone', color: 'red' },
-      { text: 'Book Slot', icon: 'whatsapp', color: 'green' },
+      { text: 'Book Slot', icon: 'phone', color: 'green' },
     ],
   },
   {
@@ -77,7 +77,7 @@ const allServices = [
     ],
     buttons: [
       { text: 'Call Now', icon: 'phone', color: 'red' },
-      { text: 'Family Offer', icon: 'whatsapp', color: 'green' },
+      { text: 'Family Offer', icon: 'phone', color: 'green' },
     ],
   },
   {
@@ -113,7 +113,7 @@ const allServices = [
     ],
     buttons: [
       { text: 'Call Manager', icon: 'phone', color: 'red' },
-      { text: 'Fleet Quote', icon: 'whatsapp', color: 'green' },
+      { text: 'Fleet Quote', icon: 'phone', color: 'green' },
     ],
   },
   {
@@ -131,11 +131,21 @@ const allServices = [
     ],
     buttons: [
       { text: 'Call Specialist', icon: 'phone', color: 'red' },
-      { text: 'Classic Care', icon: 'whatsapp', color: 'green' },
+      { text: 'Classic Care', icon: '', color: 'green' },
     ],
   },
 ];
 
+const phoneNumber = '971551818633';
+const message =
+  'Hello! I am looking for Tyre Repair / Puncture Tyre Fix Service Onsite.';
+
+const handleClick = () => {
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
+  window.open(url);
+};
 const Tabs = () => {
   const [activeCategory, setActiveCategory] = useState('All Areas');
   const [filteredServices, setFilteredServices] = useState(allServices);
@@ -150,7 +160,6 @@ const Tabs = () => {
       );
       setFilteredServices(filtered);
     }
-    
   }, [activeCategory]);
 
   return (
@@ -268,32 +277,40 @@ const Tabs = () => {
                   </div>
 
                   {/* Buttons */}
-                  <a href='tel:+971 55 181 8633'>
-
                   <div className='p-4 pt-0 flex space-x-2'>
-                    {service.buttons.map((button, index) => (
-                      <button
-                      key={index}
-                      className={`flex gap-0 md:gap-2 cursor-pointer items-center justify-center md:px-0 px-1 py-4 rounded-lg text-xs md:text-sm font-normal flex-1
-                        ${
-                          button.color === 'red'
-                          ? 'bg-[#C40716] text-white hover:bg-white hover:text-[#C40716] border border-[#C40716] transition-colors duration-300'
-                          : 'border border-[#C40716] text-[#C40716] hover:bg-[#C40716] hover:text-white transition-colors duration-300'
-                        }`}
-                      >
-                        {button.icon === 'phone' && (
-                          <PhoneCall size={16} className='mr-1' />
-                        )}
-                        {button.icon === 'whatsapp' && (
-                          <span className=' text-xs bg-green-500  px-0.5 text-white  mr-2 '>
-                            <i className='fas fa-check'></i>
-                          </span>
-                        )}
-                        {button.text}
-                      </button>
-                    ))}
+                    {service.buttons.map((button, index) => {
+                      const isWhatsApp = button.icon === 'whatsapp';
+                      const buttonClasses = `flex w-full gap-0 md:gap-2 cursor-pointer items-center justify-center md:px-0 px-1 py-4 rounded-lg text-xs md:text-sm font-normal flex-1 transition-colors duration-300 ${
+                        button.color === 'red'
+                          ? 'bg-[#C40716] text-white hover:bg-white hover:text-[#C40716] border border-[#C40716]'
+                          : 'border border-[#C40716] text-[#C40716] hover:bg-[#C40716] hover:text-white'
+                      }`;
+
+                      return (
+                        <div key={index} className='w-full'>
+                          {isWhatsApp ? (
+                            <button
+                              onClick={handleClick}
+                              className={buttonClasses}
+                            >
+                              <span className='text-xs bg-green-500 px-0.5 text-white mr-2'>
+                                <i className='fas fa-check'></i>
+                              </span>
+                              {button.text}
+                            </button>
+                          ) : (
+                            <a
+                              href='tel:+971 55 181 8633'
+                              className={buttonClasses}
+                            >
+                              <PhoneCall size={16} className='mr-1' />
+                              {button.text}
+                            </a>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
-                    </a>
                 </motion.div>
               ))
             ) : (
