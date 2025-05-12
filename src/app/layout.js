@@ -16,8 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title:
-    'Fatest Car Tyre Repair & Mobile Tyre Service in Dubai | Fast Response',
+  title: 'Fatest Car Tyre Repair & Mobile Tyre Service in Dubai | Fast Response',
   description:
     '24/7 emergency car tyre repair, mobile tyre replacement, and onsite flat tyre services across Dubai. Fast response within 20 minutes! Professional tyre services at your location.',
   viewport: 'width=device-width, initial-scale=1.0',
@@ -39,27 +38,28 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
   },
-   icons: {
+  icons: {
     icon: '/logo.png',
   },
+  keywords: [
+    'car tyre repair Dubai',
+    'flat tyre Dubai',
+    'mobile tyre repair',
+    'tyre replacement Dubai',
+    '24/7 tyre service',
+    'emergency tyre fix',
+    'onsite tyre puncture repair',
+    'mobile tyre change Dubai',
+  ],
+  robots: 'index, follow',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <Head>
-        <link rel='icon' href='/logo.png' />
-        <meta
-          name='keywords'
-          content='car tyre repair Dubai, flat tyre Dubai, mobile tyre repair, tyre replacement Dubai, 24/7 tyre service, emergency tyre fix, onsite tyre puncture repair, mobile tyre change Dubai'
-        />
-        <meta name='robots' content='index, follow' />
-      </Head>
-      <body
-        className={` scroll-smooth ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en">
+      <body className={`scroll-smooth ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         {children}
-        <ToastContainer position='top-center' autoClose={3000} />
+        <ToastContainer position="top-center" autoClose={3000} />
       </body>
     </html>
   );
