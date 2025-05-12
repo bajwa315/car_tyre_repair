@@ -39,13 +39,16 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+   icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <Head>
-        <link rel='icon' type='image/jpg' href='/logo2.jpg' />
+        <link rel='icon' href='/logo.png' />
         <meta
           name='keywords'
           content='car tyre repair Dubai, flat tyre Dubai, mobile tyre repair, tyre replacement Dubai, 24/7 tyre service, emergency tyre fix, onsite tyre puncture repair, mobile tyre change Dubai'
