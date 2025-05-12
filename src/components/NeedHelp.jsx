@@ -18,6 +18,8 @@ const NeedHelp = () => {
           Our <span> fastest-response team in Dubai </span> is available 24/7
           for all communities - average <span>18- minute</span> arrival time
         </p>
+        <a href='tel:+971 55 181 8633'>
+
         <div className='flex max-sm:flex-wrap justify-center gap-4 mt-2'>
           <div className=' cursor-pointer flex items-center gap-4 bg-white text-[#C40716] px-6 py-4 rounded-md font-normal hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-105 '>
             <Image src={call} alt='phone' className='w-5 h-5 object-cover' />
@@ -31,6 +33,7 @@ const NeedHelp = () => {
             <button className='cursor-pointer text-base '>WHATSAPP HELP</button>
           </div>
         </div>
+        </a>
       </motion.div>
     </div>
   );

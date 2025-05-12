@@ -204,99 +204,104 @@ const Tabs = () => {
 
         {/* Service Cards */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-         <AnimatePresence>
-          {filteredServices.length > 0 ? (
-            filteredServices.map((service) => (
-              <motion.div
-                initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-                viewport={{ once: true, amount: 0.3 }}
-                key={service.id}
-                className='border-[#C40716] border-t-4 overflow-hidden shadow-sm h-full flex flex-col rounded-lg'
-              >
-                <div className='p-6 flex-grow'>
-                  {/* Service Image */}
-                  <div className='relative  bg-gray-200'>
-                    <Image
-                      src={service.image || '/placeholder.svg'}
-                      alt={service.title}
-                      className='w-full h-full object-cover rounded-lg'
-                    />
-                    {service.family && (
-                      <div className='absolute top-3 left-2 bg-[#000000B2]/80  text-white text-xs px-3 py-1.5 rounded-full'>
-                        <p className='font-normal text-xs'>{service.family} </p>
-                      </div>
-                    )}
+          <AnimatePresence>
+            {filteredServices.length > 0 ? (
+              filteredServices.map((service) => (
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, ease: 'easeOut' }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  key={service.id}
+                  className='border-[#C40716] border-t-4 overflow-hidden shadow-sm h-full flex flex-col rounded-lg'
+                >
+                  <div className='p-6 flex-grow'>
+                    {/* Service Image */}
+                    <div className='relative  bg-gray-200'>
+                      <Image
+                        src={service.image || '/placeholder.svg'}
+                        alt={service.title}
+                        className='w-full h-full object-cover rounded-lg'
+                      />
+                      {service.family && (
+                        <div className='absolute top-3 left-2 bg-[#000000B2]/80  text-white text-xs px-3 py-1.5 rounded-full'>
+                          <p className='font-normal text-xs'>
+                            {service.family}{' '}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Service Content */}
+                    <h3 className='text-lg font-normal mb-3 pt-5 '>
+                      {service.title}
+                    </h3>
+
+                    <div className='flex items-center mb-2 text-sm'>
+                      <span className='text-[#C40716] mr-2'>
+                        <i className='fas fa-map-marker-alt'></i>
+                      </span>
+                      <span className='font-medium text-[#666666]'>
+                        {service.location}
+                      </span>
+                      <span className='mx-2 text-gray-500'>
+                        <i className='fas fa-clock'></i>
+                      </span>
+                      <span className='text-[#666666] text-xs'>
+                        {service.time}
+                      </span>
+                    </div>
+
+                    {/* Features */}
+                    <ul className='space-y-2 mb-4'>
+                      {service.features.map((feature, index) => (
+                        <li key={index} className='flex items-start pt-3'>
+                          <span className=' text-xs bg-green-500 p-0.5 text-white  mr-2 '>
+                            <i className='fas fa-check'></i>
+                          </span>
+                          <span className='text-sm text-[#171717]'>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Service Content */}
-                  <h3 className='text-lg font-normal mb-3 pt-5 '>
-                    {service.title}
-                  </h3>
+                  {/* Buttons */}
+                  <a href='tel:+971 55 181 8633'>
 
-                  <div className='flex items-center mb-2 text-sm'>
-                    <span className='text-[#C40716] mr-2'>
-                      <i className='fas fa-map-marker-alt'></i>
-                    </span>
-                    <span className='font-medium text-[#666666]'>
-                      {service.location}
-                    </span>
-                    <span className='mx-2 text-gray-500'>
-                      <i className='fas fa-clock'></i>
-                    </span>
-                    <span className='text-[#666666] text-xs'>
-                      {service.time}
-                    </span>
-                  </div>
-
-                  {/* Features */}
-                  <ul className='space-y-2 mb-4'>
-                    {service.features.map((feature, index) => (
-                      <li key={index} className='flex items-start pt-3'>
-                        <span className=' text-xs bg-green-500 p-0.5 text-white  mr-2 '>
-                          <i className='fas fa-check'></i>
-                        </span>
-                        <span className='text-sm text-[#171717]'>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Buttons */}
-                <div className='p-4 pt-0 flex space-x-2'>
-                  {service.buttons.map((button, index) => (
-                    <button
+                  <div className='p-4 pt-0 flex space-x-2'>
+                    {service.buttons.map((button, index) => (
+                      <button
                       key={index}
                       className={`flex gap-0 md:gap-2 cursor-pointer items-center justify-center md:px-0 px-1 py-4 rounded-lg text-xs md:text-sm font-normal flex-1
-                      ${
-                        button.color === 'red'
+                        ${
+                          button.color === 'red'
                           ? 'bg-[#C40716] text-white hover:bg-white hover:text-[#C40716] border border-[#C40716] transition-colors duration-300'
                           : 'border border-[#C40716] text-[#C40716] hover:bg-[#C40716] hover:text-white transition-colors duration-300'
-                      }`}
-                    >
-                      {button.icon === 'phone' && (
-                        <PhoneCall size={16} className='mr-1' />
-                      )}
-                      {button.icon === 'whatsapp' && (
-                        <span className=' text-xs bg-green-500  px-0.5 text-white  mr-2 '>
-                          <i className='fas fa-check'></i>
-                        </span>
-                      )}
-                      {button.text}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            ))
-          ) : (
-            <div className='text-center py-10 col-span-3'>
-              <p>No services available for this category yet.</p>
-            </div>
-          )}
-         </AnimatePresence>
+                        }`}
+                      >
+                        {button.icon === 'phone' && (
+                          <PhoneCall size={16} className='mr-1' />
+                        )}
+                        {button.icon === 'whatsapp' && (
+                          <span className=' text-xs bg-green-500  px-0.5 text-white  mr-2 '>
+                            <i className='fas fa-check'></i>
+                          </span>
+                        )}
+                        {button.text}
+                      </button>
+                    ))}
+                  </div>
+                    </a>
+                </motion.div>
+              ))
+            ) : (
+              <div className='text-center py-10 col-span-3'>
+                <p>No services available for this category yet.</p>
+              </div>
+            )}
+          </AnimatePresence>
         </div>
         <NeedHelp />
         <RatingCards />

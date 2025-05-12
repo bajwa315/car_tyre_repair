@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo2.jpg';
 // import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
@@ -22,8 +22,8 @@ const Header = () => {
             src={logo}
             alt='CARCAS Logo'
             width={200}
-            height={40}
-            className='md:h-20 h-12 w-24 md:w-50'
+            height={100}
+            className='md:h-20 h-12 w-24 md:w-40 '
           />
         </div>
 

@@ -8,7 +8,7 @@ import tyer2 from '../assets/tyer2.png';
 import tyer3 from '../assets/tyer3.png';
 import tyer4 from '../assets/tyer4.png';
 import tyer5 from '../assets/tyer5.png';
-import tyer6 from '../assets/tyer4.png';
+import tyer6 from '../assets/tyre-6.png';
 
 const services = [
   {
@@ -135,12 +135,16 @@ const ServiceCards = () => {
                       <li className='pb-1.5 text-sm '>{serv.li3}</li>
                       <li className='pb-1.5 text-sm '>{serv.li4}</li>
                     </ul>
-                    <button
-                      type='button'
-                      className='bg-[#C40716] hover:bg-[#25D366] transition-all duration-300 hover:scale-105 text-white px-4 py-2.5 rounded-md cursor-pointer text-base capitalize font-medium mb-2'
+                    <a
+                      href='tel:+971 55 181 8633'
                     >
-                      {serv.button}
-                    </button>
+                      <button
+                        type='button'
+                        className='bg-[#C40716] hover:bg-[#25D366] transition-all duration-300 hover:scale-105 text-white px-4 py-2.5 rounded-md cursor-pointer text-base capitalize font-medium mb-2'
+                      >
+                        {serv.button}
+                      </button>
+                    </a>
                   </div>
                 </div>
               </motion.div>

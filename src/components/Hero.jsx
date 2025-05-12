@@ -72,18 +72,24 @@ const Hero = () => {
           viewport={{ once: true, amount: 0.2 }}
           className='flex max-sm:flex-wrap items-center gap-4 md:gap-9 mt-10'
         >
-          <div className='flex px-5 py-3.5 text-base cursor-pointer items-center gap-4 bg-[#C40716] hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-105 rounded-md'>
-            <Image src={phone} alt='Phone Icon' className='h-8 w-8' />
-            <div>
-              <p
-                href='tel:+97155123456'
-                className='text-xl md:text-2xl font-medium uppercase'
-              >
-                +971 55 181 8633
-              </p>
-              <p className='text-xs md:text-sm'>24-hour emergency assistance</p>
+          <a
+            href='tel:+971 55 181 8633'
+          >
+            <div className='flex px-5 py-3.5 text-base cursor-pointer items-center gap-4 bg-[#C40716] hover:bg-[#25D366] hover:text-white transition-all duration-300 hover:scale-105 rounded-md'>
+              <Image src={phone} alt='Phone Icon' className='h-8 w-8' />
+              <div>
+                <p
+                  href='tel:+97155123456'
+                  className='text-xl md:text-2xl font-medium uppercase'
+                >
+                  +971 55 181 8633
+                </p>
+                <p className='text-xs md:text-sm'>
+                  24-hour emergency assistance
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         </motion.div>
       </div>
 

@@ -152,19 +152,21 @@ const FAQS = () => {
         <h3 className='font-normal text-2xl mb-4'>
           Need immediate tyre help in Dubai?
         </h3>
+          <a href='tel:+971 55 181 8633'>
         <div className='flex max-sm:flex-wrap justify-center gap-4 mt-8'>
-          <div className='flex cursor-pointer items-center gap-8 bg-[#C40716] text-white px-10 py-4 rounded-md font-normal hover:bg-[#25D366] hover:text-white transition-all duration-300  '>
-            <Image src={call} alt='phone' className='w-5 h-5 object-cover' />
-            <button className='text-base cursor-pointer'>
-              CALL DUBAI <br /> EXPERT NOW
-            </button>
-          </div>
-          <div className='flex cursor-pointer items-center gap-3 bg-[#25D366] text-white px-10 py-6 rounded-md font-normal hover:bg-[#C40716] hover:text-white transition-all duration-300'>
-            <Image src={chat} alt='phone' className='object-cover' />
+            <div className='flex cursor-pointer items-center gap-8 bg-[#C40716] text-white px-10 py-4 rounded-md font-normal hover:bg-[#25D366] hover:text-white transition-all duration-300  '>
+              <Image src={call} alt='phone' className='w-5 h-5 object-cover' />
+              <button className='text-base cursor-pointer'>
+                CALL DUBAI <br /> EXPERT NOW
+              </button>
+            </div>
+            <div className='flex cursor-pointer items-center gap-3 bg-[#25D366] text-white px-10 py-6 rounded-md font-normal hover:bg-[#C40716] hover:text-white transition-all duration-300'>
+              <Image src={chat} alt='phone' className='object-cover' />
 
-            <button className='cursor-pointer'>WHATSAPP HELP</button>
-          </div>
+              <button className='cursor-pointer'>WHATSAPP HELP</button>
+            </div>
         </div>
+          </a>
       </motion.div>
     </div>
   );
