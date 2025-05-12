@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <Head>
-        {/* Extra meta tags manually inserted */}
+        <link rel='icon' type='image/jpg' href='/logo2.jpg' />
         <meta
           name='keywords'
           content='car tyre repair Dubai, flat tyre Dubai, mobile tyre repair, tyre replacement Dubai, 24/7 tyre service, emergency tyre fix, onsite tyre puncture repair, mobile tyre change Dubai'
