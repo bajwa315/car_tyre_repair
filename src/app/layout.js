@@ -43,6 +43,7 @@ export const metadata = {
     icon: '/logo.png',
   },
 };
+// latest change ?
 
 export default function RootLayout({ children }) {
   return (
