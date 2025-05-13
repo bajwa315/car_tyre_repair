@@ -5,6 +5,7 @@ import "./globals.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from "next/head";
+import Script from 'next/script';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
