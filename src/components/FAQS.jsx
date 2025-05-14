@@ -73,18 +73,18 @@ const FAQS = () => {
         'Run-flats driven while flat usually need replacement. If caught early, some punctures can be repaired following Dubai dealer guidelines.',
     },
     {
-      question: '  Is nitrogen inflation worth it in Dubai?',
+      question: '  IS NITROGEN INFLATION WORTH IT IN DUBAI?',
       answer:
         "Absolutely! Nitrogen maintains pressure better in Dubai's temperature swings, improves fuel efficiency 1-3%, and reduces oxidation - ideal for our climate.",
     },
     {
-      question: "Do you follow Dubai's tyre disposal regulations?",
+      question: "DO YOU FOLLOW DUBAI'S TYRE DISPOSAL REGULATIONS?",
       answer:
         'Yes, we comply with Dubai Municipality recycling policies. All old tyres are processed through authorized channels at no extra cost',
     },
     {
       question:
-        "How often should I rotate tyres in Dubai's driving conditions?",
+        "HOW OFTEN SHOULD  I ROTATE TYRES IN DUBAI'S DRIVING CONDITIONS?",
       answer:
         "Every 8,000-10,000 km. This free service comes with tyre purchases, or AED 80 standalone. Crucial for Dubai's rough roads and high speeds.",
     },
