@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
-import logo from '../assets/logo3.jpg';
+import logo from '../assets/logo4.jpg';
 // import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
