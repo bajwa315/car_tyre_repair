@@ -27,7 +27,7 @@ const FAQS = () => {
     {
       question: 'WHICH AREAS OF DUBAI DO YOU COVER FOR MOBILE TYRE SERVICES?',
       answer:
-        'We service all Dubai neighborhoods including Dubai Marina, JBR, Downtown, Business Bay, and Palm Jumeirah 24/7. Our team reaches most locations within 30-45 minutes.  ',
+        'We service all Dubai neighborhoods including Dubai Marina, JBR, Downtown, Business Bay, and Palm Jumeirah 24/7. Our team reaches most locations within 20-25 minutes.  ',
     },
     {
       question: "WHAT'S THE COST OF TYRE REPAIR IN DUBAI COMPARED TO SHOPS?",
@@ -37,7 +37,7 @@ const FAQS = () => {
     {
       question: 'HOW QUICKLY CAN YOU RESPOND TO EMERGENCY TYRE SERVICES?',
       answer:
-        'Our rapid response team reaches most locations in Dubai within 30-45 minutes for emergency services. We prioritize safety incidents and offer 24/7 availability. Dubai Pro Tip: Book our VIP service for luxury vehicles, ',
+        'Our rapid response team reaches most locations in Dubai within 20-25 minutes for emergency services. We prioritize safety incidents and offer 24/7 availability. Dubai Pro Tip: Book our VIP service for luxury vehicles, ',
     },
     {
       question:
