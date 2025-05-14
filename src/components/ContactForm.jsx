@@ -64,7 +64,7 @@ const ContactForm = () => {
             </h1>
             <p className='text-white mb-8'>
               Our fastest-response team in Dubai is available 24/7 for all
-              communities - average 15-minute arrival time
+              communities - average 20-minute arrival time
             </p>
 
             <div className='space-y-6'>
