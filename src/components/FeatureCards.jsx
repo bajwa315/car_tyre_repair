@@ -24,7 +24,7 @@ const features = [
     icon: icon2,
     title: 'All Dubai Coverage',
     description:
-      'Service every area of Dubai with 20-30 minute average response time',
+      'Service every area of Dubai with 15-20 minute average response time',
   },
   {
     icon: icon3,
