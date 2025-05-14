@@ -27,7 +27,7 @@ const NeedHelp = () => {
         <h1 className='text-xl md:text-2xl  '>Need Help RIGHT NOW?</h1>
         <p className='pb-3 pt-2 max-w-3xl m-auto '>
           Our <span> fastest-response team in Dubai </span> is available 24/7
-          for all communities - average <span>18- minute</span> arrival time
+          for all communities - average <span>20- minute</span> arrival time
         </p>
 
         <div className='flex max-sm:flex-wrap justify-center gap-4 mt-2'>
