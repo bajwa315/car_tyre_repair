@@ -103,7 +103,7 @@ const Footer =() => {
       </footer>
       <div className='bg-white py-2  mt-2'>
         <p className='py-3 text-center text-sm font-normal '>
-          All rights reserved 2025
+          Copyright © 2025 Car-Tyre-Repair | Fix Puncture Tyre | Change Spare Tyre
         </p>
       </div>
     </div>
