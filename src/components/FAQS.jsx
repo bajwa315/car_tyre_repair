@@ -54,7 +54,7 @@ const FAQS = () => {
     {
       question: "WHAT'S INCLUDED IN YOUR MOBILE TYRE FITTING SERVICE IN DUBAI?",
       answer:
-        'As authorized Dubai dealers, our mobile vans carry Michelin, Bridgestone, and Pirelli tyres. We offer manufacturer warranties with every purchase.Dubai Pro Tip: Ask about our current Dubai promotions,',
+        'Complete Dubai mobile service: professional mounting, nitrogen inflation (ideal for our climate), TPMS resetting, and wheel balancing at your location.,',
     },
     {
       question: 'WHERE CAN I GET GENUINE MICHELIN/BRIDGESTONE TYRES IN DUBAI?',
