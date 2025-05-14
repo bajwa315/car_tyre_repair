@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const RatingCards = () => {
   const features = [
     {
-      heading: '5000+',
+      heading: '3000+',
       title: 'Dubai Clients',
       description: 'Served in 2024',
     },
@@ -19,7 +19,7 @@ const RatingCards = () => {
       description: 'Google Reviews',
     },
     {
-      heading: '18min',
+      heading: '20min',
       title: 'Avg. Response',
       description: 'Citywide',
     },
