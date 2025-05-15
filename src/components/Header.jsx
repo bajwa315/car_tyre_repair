@@ -8,7 +8,7 @@ import NeedHelp from './NeedHelp';
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
-  const [showContactHelp, setShowContactHelp] = useState(false);
+  const [showContactOptions, setShowContactOptions] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -19,9 +19,9 @@ const Header = () => {
     setShowServices(!showServices);
   };
 
-  const toggleContactHelp = (e) => {
+  const toggleContactOptions = (e) => {
     e.preventDefault();
-    setShowContactHelp(!showContactHelp);
+    setShowContactOptions(!showContactOptions);
   };
 
   const services = [
@@ -37,7 +37,6 @@ const Header = () => {
     // Close menus
     setShowServices(false);
     setSidebarOpen(false);
-    setShowContactHelp(false);
     
     // Update URL first
     window.location.hash = `service-${id}`;
@@ -49,6 +48,12 @@ const Header = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 10);
+  };
+
+  const showNeedHelp = () => {
+    setShowContactOptions(false);
+    setSidebarOpen(false);
+    return <NeedHelp />;
   };
 
   return (
@@ -82,13 +87,17 @@ const Header = () => {
             {showServices && (
               <div className='absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg py-2 z-50'>
                 {services.map((service) => (
-                  <button
+                  <a
                     key={service.id}
-                    onClick={() => navigateToService(service.id)}
-                    className='block w-full text-left px-4 py-2 hover:bg-gray-100 text-sm'
+                    href={`#service-${service.id}`}
+                    onClick={() => {
+                      setShowServices(false);
+                      navigateToService(service.id);
+                    }}
+                    className='block px-4 py-2 hover:bg-gray-100 text-sm'
                   >
                     {service.title}
-                  </button>
+                  </a>
                 ))}
               </div>
             )}
@@ -99,17 +108,29 @@ const Header = () => {
           <div className='relative'>
             <a 
               href='#contact' 
-              onClick={toggleContactHelp}
+              onClick={toggleContactOptions}
               className='flex items-center gap-1'
             >
               Contact Us
-              <span className={`transition-transform ${showContactHelp ? 'rotate-180' : ''}`}>
+              <span className={`transition-transform ${showContactOptions ? 'rotate-180' : ''}`}>
                 <i className='fa-solid fa-chevron-down text-sm'></i>
               </span>
             </a>
-            {showContactHelp && (
-              <div className='absolute top-full left-0 mt-2 w-72 bg-white text-black rounded-md shadow-lg py-2 z-50'>
-                <NeedHelp />
+            {showContactOptions && (
+              <div className='absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg py-2 z-50'>
+                <a
+                  href='#contact'
+                  onClick={() => setShowContactOptions(false)}
+                  className='block px-4 py-2 hover:bg-gray-100 text-sm'
+                >
+                  Contact
+                </a>
+                <div 
+                  onClick={() => setShowContactOptions(false)}
+                  className='px-4 py-2 hover:bg-gray-100 text-sm cursor-pointer'
+                >
+                  Need Help
+                </div>
               </div>
             )}
           </div>
@@ -179,8 +200,9 @@ const Header = () => {
             {showServices && (
               <div className='ml-4 mt-2 space-y-2'>
                 {services.map((service) => (
-                  <button
+                  <a
                     key={service.id}
+                    href={`#service-${service.id}`}
                     onClick={() => {
                       navigateToService(service.id);
                       toggleSidebar();
@@ -188,7 +210,7 @@ const Header = () => {
                     className='block w-full text-left text-sm py-1'
                   >
                     {service.title}
-                  </button>
+                  </a>
                 ))}
               </div>
             )}
@@ -207,18 +229,33 @@ const Header = () => {
               href='#contact' 
               onClick={(e) => {
                 e.preventDefault();
-                setShowContactHelp(!showContactHelp);
+                setShowContactOptions(!showContactOptions);
               }}
               className='flex items-center justify-between w-full'
             >
               Contact Us
-              <span className={`transition-transform ${showContactHelp ? 'rotate-180' : ''}`}>
+              <span className={`transition-transform ${showContactOptions ? 'rotate-180' : ''}`}>
                 <i className='fa-solid fa-chevron-down text-sm'></i>
               </span>
             </a>
-            {showContactHelp && (
-              <div className='ml-4 mt-2'>
-                <NeedHelp />
+            {showContactOptions && (
+              <div className='ml-4 mt-2 space-y-2'>
+                <a
+                  href='#contact'
+                  onClick={toggleSidebar}
+                  className='block w-full text-left text-sm py-1'
+                >
+                  Contact
+                </a>
+                <div 
+                  onClick={() => {
+                    setShowContactOptions(false);
+                    setSidebarOpen(false);
+                  }}
+                  className='block w-full text-left text-sm py-1 cursor-pointer'
+                >
+                  Need Help
+                </div>
               </div>
             )}
           </div>
