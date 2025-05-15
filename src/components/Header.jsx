@@ -19,31 +19,25 @@ const Header = () => {
   };
 
   const services = [
-    {
-      id: 1,
-      title: '24/7 Emergency Tyre Change',
-    },
-    {
-      id: 2,
-      title: 'New Tyre Replacement',
-    },
-    {
-      id: 3,
-      title: 'Emergency Spare Tyre Service',
-    },
-    {
-      id: 4,
-      title: 'Alloy Rim Repair Service',
-    },
-    {
-      id: 5,
-      title: 'Flat Tyre Repair Service',
-    },
-    {
-      id: 6,
-      title: 'Tyre Air Pressure Service',
-    },
+    { id: 1, title: '24/7 Emergency Tyre Change' },
+    { id: 2, title: 'New Tyre Replacement' },
+    { id: 3, title: 'Emergency Spare Tyre Service' },
+    { id: 4, title: 'Alloy Rim Repair Service' },
+    { id: 5, title: 'Flat Tyre Repair Service' },
+    { id: 6, title: 'Tyre Air Pressure Service' },
   ];
+
+  const navigateToService = (id) => {
+    // Close menus
+    setShowServices(false);
+    setSidebarOpen(false);
+    
+    // Scroll to service section
+    const element = document.getElementById(`service-${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header id='Home' className='bg-[#00000042] relative z-50 text-white'>
@@ -76,14 +70,13 @@ const Header = () => {
             {showServices && (
               <div className='absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg py-2 z-50'>
                 {services.map((service) => (
-                  <a
+                  <button
                     key={service.id}
-                    href={`#service-${service.id}`}
-                    className='block px-4 py-2 hover:bg-gray-100 text-sm'
-                    onClick={() => setShowServices(false)}
+                    onClick={() => navigateToService(service.id)}
+                    className='block w-full text-left px-4 py-2 hover:bg-gray-100 text-sm'
                   >
                     {service.title}
-                  </a>
+                  </button>
                 ))}
               </div>
             )}
@@ -158,14 +151,13 @@ const Header = () => {
             {showServices && (
               <div className='ml-4 mt-2 space-y-2'>
                 {services.map((service) => (
-                  <a
+                  <button
                     key={service.id}
-                    href={`#service-${service.id}`}
-                    className='block text-sm py-1'
-                    onClick={toggleSidebar}
+                    onClick={() => navigateToService(service.id)}
+                    className='block w-full text-left text-sm py-1'
                   >
                     {service.title}
-                  </a>
+                  </button>
                 ))}
               </div>
             )}
