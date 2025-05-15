@@ -3,10 +3,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
 import logo from '../assets/logo2.jpg';
+import NeedHelp from './NeedHelp';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
+  const [showContactHelp, setShowContactHelp] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -15,6 +17,11 @@ const Header = () => {
   const toggleServices = (e) => {
     e.preventDefault();
     setShowServices(!showServices);
+  };
+
+  const toggleContactHelp = (e) => {
+    e.preventDefault();
+    setShowContactHelp(!showContactHelp);
   };
 
   const services = [
@@ -30,6 +37,7 @@ const Header = () => {
     // Close menus
     setShowServices(false);
     setSidebarOpen(false);
+    setShowContactHelp(false);
     
     // Update URL first
     window.location.hash = `service-${id}`;
@@ -88,7 +96,23 @@ const Header = () => {
           <a href='#service'>Services</a>
           <a href='#faq'>FAQ</a>
           <a href='#testimonials'>Testimonial</a>
-          <a href='#contact'>Contact Us</a>
+          <div className='relative'>
+            <a 
+              href='#contact' 
+              onClick={toggleContactHelp}
+              className='flex items-center gap-1'
+            >
+              Contact Us
+              <span className={`transition-transform ${showContactHelp ? 'rotate-180' : ''}`}>
+                <i className='fa-solid fa-chevron-down text-sm'></i>
+              </span>
+            </a>
+            {showContactHelp && (
+              <div className='absolute top-full left-0 mt-2 w-72 bg-white text-black rounded-md shadow-lg py-2 z-50'>
+                <NeedHelp />
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Phone Info */}
@@ -178,9 +202,26 @@ const Header = () => {
           <a href='#testimonials' onClick={toggleSidebar}>
             Testimonial
           </a>
-          <a href='#contact' onClick={toggleSidebar}>
-            Contact Us
-          </a>
+          <div className='w-full'>
+            <a 
+              href='#contact' 
+              onClick={(e) => {
+                e.preventDefault();
+                setShowContactHelp(!showContactHelp);
+              }}
+              className='flex items-center justify-between w-full'
+            >
+              Contact Us
+              <span className={`transition-transform ${showContactHelp ? 'rotate-180' : ''}`}>
+                <i className='fa-solid fa-chevron-down text-sm'></i>
+              </span>
+            </a>
+            {showContactHelp && (
+              <div className='ml-4 mt-2'>
+                <NeedHelp />
+              </div>
+            )}
+          </div>
         </nav>
       </div>
 
