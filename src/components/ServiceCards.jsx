@@ -13,6 +13,7 @@ import tyer6 from '../assets/tyre-6.png';
 const services = [
   {
     id: 1,
+    slug: 'emergency-tyre-change',
     title: '24/7 Emergency Tyre Change',
     description: 'Get back on Dubai roads quickly with our rapid tyre change service at your location',
     li1: 'Complete seasonal tyre changeovers',
@@ -24,6 +25,7 @@ const services = [
   },
   {
     id: 2,
+    slug: 'new-tyre-replacement',
     title: 'New Tyre Replacement',
     description: 'Top-quality tyre brands installed by certified technicians at your convenience',
     li1: 'Vehicle-specific tyre recommendations',
@@ -35,6 +37,7 @@ const services = [
   },
   {
     id: 3,
+    slug: 'emergency-spare-tyre',
     title: 'Emergency Spare Tyre Service',
     description: "Immediate spare tyre solutions when you're stranded anywhere in Dubai",
     li1: 'Quality spare tyre replacements',
@@ -46,6 +49,7 @@ const services = [
   },
   {
     id: 4,
+    slug: 'alloy-rim-repair',
     title: 'Alloy Rim Repair Service',
     description: 'Expert rim straightening and cosmetic repair for alloy wheels in Dubai',
     li1: 'Curbside rim straightening service',
@@ -57,6 +61,7 @@ const services = [
   },
   {
     id: 5,
+    slug: 'flat-tyre-repair',
     title: 'Flat Tyre Repair Service',
     description: 'Reliable puncture repairs that restore your tyres safety and performance',
     li1: 'Professional plug and patch repairs',
@@ -68,6 +73,7 @@ const services = [
   },
   {
     id: 6,
+    slug: 'tyre-pressure-service',
     title: 'Tyre Air Pressure Service',
     description: 'Maintain optimal tyre pressure with our mobile air check service',
     li1: 'Pressure check and adjustment',
@@ -81,7 +87,7 @@ const services = [
 
 const ServiceCards = () => {
   return (
-    <div id='services-section' className=''>
+    <section id="tyre-services" className="services-section">
       <div className='bg-gradient-to-b from-[#C40716] to-[#5E030B00]'>
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -91,48 +97,49 @@ const ServiceCards = () => {
         >
           <div className='pt-8 flex items-center gap-3 justify-center'>
             <Image src={line} alt='service' width={30} height={30} />
-            <p className='text-white text-base'>service</p>
+            <p className='text-white text-base'>Our Services</p>
           </div>
-          <h1 className='text-center text-2xl md:text-5xl text-white pt-3'>
-            Professional Tyre Services in Dubai <br /> - 24/7 Mobile Assistance
+          <h1 className='text-center text-2xl md:text-5xl text-white pt-3 pb-8'>
+            Professional Tyre Services in Dubai<br />
+            24/7 Mobile Assistance
           </h1>
         </motion.div>
-        <div className='Mycontainer pt-7 md:pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
-          {services.map((serv) => (
+
+        <div className='Mycontainer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12'>
+          {services.map((service) => (
             <motion.div
-              key={serv.id}
-              id={`service-${serv.id}`}
+              key={service.id}
+              id={`service-${service.slug}`}
+              className="service-card scroll-mt-24"
               initial={{ rotateY: -90, opacity: 0 }}
               whileInView={{ rotateY: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true, amount: 0.5 }}
-              className="scroll-mt-20"
             >
-              <div className='bg-white text-black rounded-md overflow-hidden shadow-md border-[#C40716] border-t-4 hover:scale-105 ease-in-out transition-all duration-500'>
-                <div className='p-4'>
-                  <div className='relative h-48'>
-                    <Image
-                      src={serv.image}
-                      alt={serv.title}
-                      fill
-                      className='object-cover rounded-md'
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
-                  <h3 className='text-lg font-bold mb-2 pt-3'>{serv.title}</h3>
-                  <p className='text-gray-700 text-sm mb-4'>{serv.description}</p>
-                  <ul className='list-disc list-inside pb-4'>
-                    <li className='pb-1.5 text-sm'>{serv.li1}</li>
-                    <li className='pb-1.5 text-sm'>{serv.li2}</li>
-                    <li className='pb-1.5 text-sm'>{serv.li3}</li>
-                    <li className='pb-1.5 text-sm'>{serv.li4}</li>
+              <div className='bg-white rounded-md overflow-hidden shadow-lg border-t-4 border-[#C40716] hover:scale-105 transition-all duration-300 h-full flex flex-col'>
+                <div className='relative h-48 w-full'>
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className='object-cover'
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className='p-4 flex-grow'>
+                  <h2 className='text-xl font-bold mb-2'>{service.title}</h2>
+                  <p className='text-gray-700 text-sm mb-4'>{service.description}</p>
+                  <ul className='list-disc list-inside space-y-1 text-sm mb-4'>
+                    <li>{service.li1}</li>
+                    <li>{service.li2}</li>
+                    <li>{service.li3}</li>
+                    <li>{service.li4}</li>
                   </ul>
-                  <a href='tel:+971 55 181 8633'>
-                    <button
-                      type='button'
-                      className='bg-[#C40716] hover:bg-[#25D366] transition-all duration-300 hover:scale-105 text-white px-4 py-2.5 rounded-md cursor-pointer text-base capitalize font-medium mb-2'
-                    >
-                      {serv.button}
+                </div>
+                <div className='p-4'>
+                  <a href={`tel:+971551818633`} className='block w-full'>
+                    <button className='w-full bg-[#C40716] hover:bg-[#D6323C] text-white py-2 px-4 rounded-md transition-colors duration-300 font-medium'>
+                      {service.button}
                     </button>
                   </a>
                 </div>
@@ -141,7 +148,7 @@ const ServiceCards = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
