@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
@@ -8,18 +9,8 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
 
-  const services = [
-    { id: 1, slug: 'emergency-tyre-change', title: '24/7 Emergency Tyre Change' },
-    { id: 2, slug: 'new-tyre-replacement', title: 'New Tyre Replacement' },
-    { id: 3, slug: 'emergency-spare-tyre', title: 'Emergency Spare Tyre Service' },
-    { id: 4, slug: 'alloy-rim-repair', title: 'Alloy Rim Repair Service' },
-    { id: 5, slug: 'flat-tyre-repair', title: 'Flat Tyre Repair Service' },
-    { id: 6, slug: 'tyre-pressure-service', title: 'Tyre Air Pressure Service' },
-  ];
-
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-    setShowServices(false);
   };
 
   const toggleServices = (e) => {
@@ -27,131 +18,171 @@ const Header = () => {
     setShowServices(!showServices);
   };
 
-  const navigateToService = (slug) => {
+  const services = [
+    { id: 1, title: '24/7 Emergency Tyre Change' },
+    { id: 2, title: 'New Tyre Replacement' },
+    { id: 3, title: 'Emergency Spare Tyre Service' },
+    { id: 4, title: 'Alloy Rim Repair Service' },
+    { id: 5, title: 'Flat Tyre Repair Service' },
+    { id: 6, title: 'Tyre Air Pressure Service' },
+  ];
+
+  const navigateToService = (id) => {
     // Close menus
     setShowServices(false);
     setSidebarOpen(false);
     
-    // Update URL first
-    window.location.hash = `service-${slug}`;
-    
-    // Then scroll to element
-    setTimeout(() => {
-      const element = document.getElementById(`service-${slug}`);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 10);
+    // Scroll to service section
+    const element = document.getElementById(`service-${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <header id='home' className='bg-[#00000042] text-white sticky top-0 z-50'>
-      <div className='Mycontainer flex justify-between items-center py-3'>
+    <header id='Home' className='bg-[#00000042] relative z-50 text-white'>
+      <div className='Mycontainer gap-2 max-sm:gap-6 flex sm:justify-between items-center'>
         {/* Logo */}
         <div className='flex items-center'>
           <Image
             src={logo}
             alt='CARCAS Logo'
-            width={160}
-            height={80}
-            className='h-12 w-auto'
+            width={200}
+            height={100}
+            className='md:h-20 h-12 w-24 md:w-40'
           />
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className='hidden md:flex items-center gap-6'>
-          <a href='#home' className='hover:text-red-400'>Home</a>
-          
-          {/* About Us Dropdown */}
+        {/* Desktop Navigation - Hidden on mobile */}
+        <nav className='hidden sm:flex gap-6 text-lg font-medium relative'>
+          <a href='#'>Home</a>
           <div className='relative'>
-            <button 
+            <a 
+              href='#about' 
               onClick={toggleServices}
-              className='hover:text-red-400 flex items-center gap-1'
+              className='flex items-center gap-1'
             >
-              About Us <i className={`fas fa-chevron-down text-xs ${showServices ? 'rotate-180' : ''}`}></i>
-            </button>
-            
+              About Us
+              <span className={`transition-transform ${showServices ? 'rotate-180' : ''}`}>
+                <i className='fa-solid fa-chevron-down text-sm'></i>
+              </span>
+            </a>
             {showServices && (
               <div className='absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg py-2 z-50'>
-                {services.map(service => (
-                  <a
+                {services.map((service) => (
+                  <button
                     key={service.id}
-                    href={`#service-${service.slug}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateToService(service.slug);
-                    }}
-                    className='block px-4 py-2 hover:bg-gray-100 text-sm'
+                    onClick={() => navigateToService(service.id)}
+                    className='block w-full text-left px-4 py-2 hover:bg-gray-100 text-sm'
                   >
                     {service.title}
-                  </a>
+                  </button>
                 ))}
               </div>
             )}
           </div>
-
-          <a href='#services' className='hover:text-red-400'>Services</a>
-          <a href='#faq' className='hover:text-red-400'>FAQ</a>
-          <a href='#contact' className='hover:text-red-400'>Contact</a>
+          <a href='#service'>Services</a>
+          <a href='#faq'>FAQ</a>
+          <a href='#testimonials'>Testimonial</a>
+          <a href='#contact'>Contact Us</a>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className='md:hidden text-2xl' 
+        {/* Phone Info */}
+        <div className='flex items-center md:gap-2'>
+          <Image
+            src={phone}
+            alt='Phone Icon'
+            className='h-4 w-4 md:h-8 md:w-8 mr-2'
+          />
+          <div>
+            <p className='text-[10px] sm:text-lg md:text-2xl font-medium uppercase'>
+              +971 55 181 8633
+            </p>
+            <p className='text-[7px] sm:text-sm'>
+              24-hour emergency assistance
+            </p>
+          </div>
+        </div>
+
+        {/* Mobile Menu Button - Only shows on mobile */}
+        <button
+          className='sm:hidden text-white text-xl absolute right-3 cursor-pointer'
           onClick={toggleSidebar}
         >
-          <i className='fas fa-bars'></i>
+          <i className='fa-solid fa-bars'></i>
         </button>
       </div>
 
-      {/* Mobile Sidebar */}
-      {sidebarOpen && (
-        <div className='fixed inset-0 bg-black bg-opacity-70 z-40 md:hidden'>
-          <div className='absolute top-0 right-0 h-full w-80 bg-white shadow-xl'>
-            <div className='p-4 flex justify-between items-center border-b'>
-              <Image src={logo} alt='Logo' width={120} height={60}/>
-              <button onClick={toggleSidebar} className='text-2xl'>
-                <i className='fas fa-times'></i>
-              </button>
-            </div>
-
-            <nav className='p-4 space-y-4'>
-              <a href='#home' onClick={toggleSidebar} className='block py-2 font-medium'>Home</a>
-              
-              <div>
-                <button 
-                  onClick={() => setShowServices(!showServices)}
-                  className='flex justify-between items-center w-full py-2 font-medium'
-                >
-                  About Us <i className={`fas fa-chevron-down text-xs ${showServices ? 'rotate-180' : ''}`}></i>
-                </button>
-                
-                {showServices && (
-                  <div className='pl-4 mt-2 space-y-2'>
-                    {services.map(service => (
-                      <a
-                        key={service.id}
-                        href={`#service-${service.slug}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          navigateToService(service.slug);
-                          setSidebarOpen(false);
-                        }}
-                        className='block py-1 text-sm'
-                      >
-                        {service.title}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <a href='#services' onClick={toggleSidebar} className='block py-2 font-medium'>Services</a>
-              <a href='#faq' onClick={toggleSidebar} className='block py-2 font-medium'>FAQ</a>
-              <a href='#contact' onClick={toggleSidebar} className='block py-2 font-medium'>Contact</a>
-            </nav>
-          </div>
+      {/* Mobile Sidebar - Shows on mobile only */}
+      <div
+        className={`fixed top-0 right-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
+          sidebarOpen ? 'translate-x-0' : 'translate-x-full'
+        } sm:hidden`}
+      >
+        {/* Close Button */}
+        <div className='flex justify-end p-4'>
+          <button
+            onClick={toggleSidebar}
+            className='text-black text-xl cursor-pointer'
+          >
+            <i className='fa-solid fa-xmark'></i>
+          </button>
         </div>
+
+        {/* Sidebar Links */}
+        <nav className='flex flex-col items-start gap-4 px-6 text-black text-lg font-medium'>
+          <a href='#' onClick={toggleSidebar}>
+            Home
+          </a>
+          <div className='w-full'>
+            <a 
+              href='#about' 
+              onClick={(e) => {
+                e.preventDefault();
+                setShowServices(!showServices);
+              }}
+              className='flex items-center justify-between w-full'
+            >
+              About Us
+              <span className={`transition-transform ${showServices ? 'rotate-180' : ''}`}>
+                <i className='fa-solid fa-chevron-down text-sm'></i>
+              </span>
+            </a>
+            {showServices && (
+              <div className='ml-4 mt-2 space-y-2'>
+                {services.map((service) => (
+                  <button
+                    key={service.id}
+                    onClick={() => navigateToService(service.id)}
+                    className='block w-full text-left text-sm py-1'
+                  >
+                    {service.title}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          <a href='#service' onClick={toggleSidebar}>
+            Services
+          </a>
+          <a href='#faq' onClick={toggleSidebar}>
+            FAQ
+          </a>
+          <a href='#testimonials' onClick={toggleSidebar}>
+            Testimonial
+          </a>
+          <a href='#contact' onClick={toggleSidebar}>
+            Contact Us
+          </a>
+        </nav>
+      </div>
+
+      {/* Backdrop for mobile sidebar */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 sm:hidden"
+          onClick={toggleSidebar}
+        />
       )}
     </header>
   );
