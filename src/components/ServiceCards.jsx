@@ -81,7 +81,7 @@ const services = [
 
 const ServiceCards = () => {
   return (
-    <div id='about' className=''>
+    <div id='services-section' className=''>
       <div className='bg-gradient-to-b from-[#C40716] to-[#5E030B00]'>
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -90,7 +90,7 @@ const ServiceCards = () => {
           viewport={{ once: true, amount: 0.6 }}
         >
           <div className='pt-8 flex items-center gap-3 justify-center'>
-            <Image src={line} alt='service' />
+            <Image src={line} alt='service' width={30} height={30} />
             <p className='text-white text-base'>service</p>
           </div>
           <h1 className='text-center text-2xl md:text-5xl text-white pt-3'>
@@ -98,15 +98,15 @@ const ServiceCards = () => {
           </h1>
         </motion.div>
         <div className='Mycontainer pt-7 md:pt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
-          {services.map((serv, ind) => (
+          {services.map((serv) => (
             <motion.div
-              key={serv.id}  // Changed from ind to serv.id for more stable keys
-              id={`service-${serv.id}`}  // THIS IS THE CRUCIAL ADDITION FOR NAVIGATION
+              key={serv.id}
+              id={`service-${serv.id}`}
               initial={{ rotateY: -90, opacity: 0 }}
               whileInView={{ rotateY: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true, amount: 0.5 }}
-              className="scroll-mt-20"  // Adds spacing when scrolling to this element
+              className="scroll-mt-20"
             >
               <div className='bg-white text-black rounded-md overflow-hidden shadow-md border-[#C40716] border-t-4 hover:scale-105 ease-in-out transition-all duration-500'>
                 <div className='p-4'>
@@ -116,6 +116,7 @@ const ServiceCards = () => {
                       alt={serv.title}
                       fill
                       className='object-cover rounded-md'
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                   <h3 className='text-lg font-bold mb-2 pt-3'>{serv.title}</h3>
