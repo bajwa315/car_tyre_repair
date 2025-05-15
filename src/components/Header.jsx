@@ -97,8 +97,6 @@ const Header = () => {
           </a>
           <a href='#contact' onClick={toggleSidebar}>
             Contact Us
-             <a href='#needhelp' onClick={toggleSidebar}>
-            help
           </a>
         </nav>
       </div>
