@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
 import logo from '../assets/logo2.jpg';
-import NeedHelp from './NeedHelp';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -33,27 +32,22 @@ const Header = () => {
     { id: 6, title: 'Tyre Air Pressure Service' },
   ];
 
-  const navigateToService = (id) => {
-    // Close menus
+  const navigateToSection = (hash) => {
+    // Close all menus
     setShowServices(false);
+    setShowContactOptions(false);
     setSidebarOpen(false);
     
     // Update URL first
-    window.location.hash = `service-${id}`;
+    window.location.hash = hash;
     
     // Then scroll to element
     setTimeout(() => {
-      const element = document.getElementById(`service-${id}`);
+      const element = document.getElementById(hash.replace('#', ''));
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 10);
-  };
-
-  const showNeedHelp = () => {
-    setShowContactOptions(false);
-    setSidebarOpen(false);
-    return <NeedHelp />;
   };
 
   return (
@@ -90,9 +84,9 @@ const Header = () => {
                   <a
                     key={service.id}
                     href={`#service-${service.id}`}
-                    onClick={() => {
-                      setShowServices(false);
-                      navigateToService(service.id);
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToSection(`service-${service.id}`);
                     }}
                     className='block px-4 py-2 hover:bg-gray-100 text-sm'
                   >
@@ -120,17 +114,24 @@ const Header = () => {
               <div className='absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg py-2 z-50'>
                 <a
                   href='#contact'
-                  onClick={() => setShowContactOptions(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToSection('contact');
+                  }}
                   className='block px-4 py-2 hover:bg-gray-100 text-sm'
                 >
                   Contact
                 </a>
-                <div 
-                  onClick={() => setShowContactOptions(false)}
-                  className='px-4 py-2 hover:bg-gray-100 text-sm cursor-pointer'
+                <a
+                  href='#need-help'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToSection('need-help');
+                  }}
+                  className='block px-4 py-2 hover:bg-gray-100 text-sm'
                 >
                   Need Help
-                </div>
+                </a>
               </div>
             )}
           </div>
@@ -203,8 +204,9 @@ const Header = () => {
                   <a
                     key={service.id}
                     href={`#service-${service.id}`}
-                    onClick={() => {
-                      navigateToService(service.id);
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToSection(`service-${service.id}`);
                       toggleSidebar();
                     }}
                     className='block w-full text-left text-sm py-1'
@@ -242,20 +244,26 @@ const Header = () => {
               <div className='ml-4 mt-2 space-y-2'>
                 <a
                   href='#contact'
-                  onClick={toggleSidebar}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToSection('contact');
+                    toggleSidebar();
+                  }}
                   className='block w-full text-left text-sm py-1'
                 >
                   Contact
                 </a>
-                <div 
-                  onClick={() => {
-                    setShowContactOptions(false);
-                    setSidebarOpen(false);
+                <a
+                  href='#need-help'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToSection('need-help');
+                    toggleSidebar();
                   }}
-                  className='block w-full text-left text-sm py-1 cursor-pointer'
+                  className='block w-full text-left text-sm py-1'
                 >
                   Need Help
-                </div>
+                </a>
               </div>
             )}
           </div>
