@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
 import logo from '../assets/logo2.jpg';
-// import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -23,12 +22,22 @@ const Header = () => {
             alt='CARCAS Logo'
             width={200}
             height={100}
-            className='md:h-20 h-12 w-24 md:w-40 '
+            className='md:h-20 h-12 w-24 md:w-40'
           />
         </div>
 
+        {/* Desktop Navigation - Hidden on mobile */}
+        <nav className='hidden sm:flex gap-6 text-lg font-medium'>
+          <a href='#'>Home</a>
+          <a href='#about'>About Us</a>
+          <a href='#service'>Services</a>
+          <a href='#faq'>FAQ</a>
+          <a href='#testimonials'>Testimonial</a>
+          <a href='#contact'>Contact Us</a>
+        </nav>
+
         {/* Phone Info */}
-        <div className=' flex items-center md:gap-2'>
+        <div className='flex items-center md:gap-2'>
           <Image
             src={phone}
             alt='Phone Icon'
@@ -44,16 +53,16 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - Only shows on mobile */}
         <button
-          className='sm:hidden text-white text-xl absolute right-3 cursor-pointer '
+          className='sm:hidden text-white text-xl absolute right-3 cursor-pointer'
           onClick={toggleSidebar}
         >
-          <i className='fa-solid fa-bars'></i>{' '}
+          <i className='fa-solid fa-bars'></i>
         </button>
       </div>
 
-      {/* Sidebar (Mobile only) */}
+      {/* Mobile Sidebar - Shows on mobile only */}
       <div
         className={`fixed top-0 right-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
           sidebarOpen ? 'translate-x-0' : 'translate-x-full'
@@ -65,12 +74,12 @@ const Header = () => {
             onClick={toggleSidebar}
             className='text-black text-xl cursor-pointer'
           >
-            <i className='fa-solid fa-xmark'></i>{' '}
+            <i className='fa-solid fa-xmark'></i>
           </button>
         </div>
 
         {/* Sidebar Links */}
-        <nav className='  flex flex-col items-start gap-4 px-6 text-black text-lg font-medium'>
+        <nav className='flex flex-col items-start gap-4 px-6 text-black text-lg font-medium'>
           <a href='#' onClick={toggleSidebar}>
             Home
           </a>
@@ -91,6 +100,14 @@ const Header = () => {
           </a>
         </nav>
       </div>
+
+      {/* Backdrop for mobile sidebar */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 sm:hidden"
+          onClick={toggleSidebar}
+        />
+      )}
     </header>
   );
 };
