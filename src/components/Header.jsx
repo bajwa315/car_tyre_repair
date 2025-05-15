@@ -7,10 +7,43 @@ import logo from '../assets/logo2.jpg';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showServices, setShowServices] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
+  const toggleServices = (e) => {
+    e.preventDefault();
+    setShowServices(!showServices);
+  };
+
+  const services = [
+    {
+      id: 1,
+      title: '24/7 Emergency Tyre Change',
+    },
+    {
+      id: 2,
+      title: 'New Tyre Replacement',
+    },
+    {
+      id: 3,
+      title: 'Emergency Spare Tyre Service',
+    },
+    {
+      id: 4,
+      title: 'Alloy Rim Repair Service',
+    },
+    {
+      id: 5,
+      title: 'Flat Tyre Repair Service',
+    },
+    {
+      id: 6,
+      title: 'Tyre Air Pressure Service',
+    },
+  ];
 
   return (
     <header id='Home' className='bg-[#00000042] relative z-50 text-white'>
@@ -27,9 +60,34 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation - Hidden on mobile */}
-        <nav className='hidden sm:flex gap-6 text-lg font-medium'>
+        <nav className='hidden sm:flex gap-6 text-lg font-medium relative'>
           <a href='#'>Home</a>
-          <a href='#about'>About Us</a>
+          <div className='relative'>
+            <a 
+              href='#about' 
+              onClick={toggleServices}
+              className='flex items-center gap-1'
+            >
+              About Us
+              <span className={`transition-transform ${showServices ? 'rotate-180' : ''}`}>
+                <i className='fa-solid fa-chevron-down text-sm'></i>
+              </span>
+            </a>
+            {showServices && (
+              <div className='absolute top-full left-0 mt-2 w-64 bg-white text-black rounded-md shadow-lg py-2 z-50'>
+                {services.map((service) => (
+                  <a
+                    key={service.id}
+                    href={`#service-${service.id}`}
+                    className='block px-4 py-2 hover:bg-gray-100 text-sm'
+                    onClick={() => setShowServices(false)}
+                  >
+                    {service.title}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
           <a href='#service'>Services</a>
           <a href='#faq'>FAQ</a>
           <a href='#testimonials'>Testimonial</a>
@@ -83,9 +141,35 @@ const Header = () => {
           <a href='#' onClick={toggleSidebar}>
             Home
           </a>
-          <a href='#about' onClick={toggleSidebar}>
-            About Us
-          </a>
+          <div className='w-full'>
+            <a 
+              href='#about' 
+              onClick={(e) => {
+                e.preventDefault();
+                setShowServices(!showServices);
+              }}
+              className='flex items-center justify-between w-full'
+            >
+              About Us
+              <span className={`transition-transform ${showServices ? 'rotate-180' : ''}`}>
+                <i className='fa-solid fa-chevron-down text-sm'></i>
+              </span>
+            </a>
+            {showServices && (
+              <div className='ml-4 mt-2 space-y-2'>
+                {services.map((service) => (
+                  <a
+                    key={service.id}
+                    href={`#service-${service.id}`}
+                    className='block text-sm py-1'
+                    onClick={toggleSidebar}
+                  >
+                    {service.title}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
           <a href='#service' onClick={toggleSidebar}>
             Services
           </a>
