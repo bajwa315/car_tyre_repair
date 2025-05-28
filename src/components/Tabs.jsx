@@ -24,7 +24,7 @@ const categories = [
   'Dubai Marina',
 ];
 
-// Service cards data with categories
+// Service cards data with corrected categories
 const allServices = [
   {
     id: 1,
@@ -33,7 +33,7 @@ const allServices = [
     location: 'Palm Jumeirah',
     time: '3:45 AM Service',
     image: tab1,
-    category: 'Arabian Ranches',
+    category: 'Palm Jumeirah',
     features: [
       'Special low-profile tyre equipment',
       'OEM-approved Pirelli P-Zero tyres',
@@ -51,7 +51,7 @@ const allServices = [
     location: 'Emirates Hills',
     time: '11:30 PM',
     image: tab2,
-    category: 'Palm Jumeirah',
+    category: 'Emirates Hills',
     features: [
       'White-glove service',
       'Original equipment tyres',
@@ -87,7 +87,7 @@ const allServices = [
     location: 'Arabian Ranches',
     time: ' 2:15 AM ',
     image: tab4,
-    category: 'Mudon',
+    category: 'Arabian Ranches',
     features: [
       '24/7 community access',
       'Temporary spare fitted',
@@ -100,12 +100,12 @@ const allServices = [
   },
   {
     id: 5,
-    title: 'corporate fleet maintenance',
+    title: 'Corporate Fleet Maintenance',
     family: ' 🚗 Fleet Service',
     location: 'Mudon',
     time: '8 Company Cars',
     image: tab5,
-    category: 'Emirates Hills',
+    category: 'Mudon',
     features: [
       'After-hours servicing',
       'Detailed service reports',
@@ -118,16 +118,16 @@ const allServices = [
   },
   {
     id: 6,
-    title: 'vintage Porsche 911 restoration',
+    title: 'Vintage Porsche 911 Restoration',
     family: ' 🏎 Classic Car Care',
-    location: 'Jumeirah',
+    location: 'Business Bay',
     time: '🛠 Full Service',
     image: tab6,
     category: 'Business Bay',
     features: [
-      '24/7 community access',
-      'Temporary spare fitted',
-      'Security coordinated entry',
+      'Specialist classic car tools',
+      'Period-correct tyres available',
+      'Show-quality work',
     ],
     buttons: [
       { text: 'Call Specialist', icon: 'phone', color: 'red' },
@@ -146,6 +146,7 @@ const handleClick = () => {
   )}`;
   window.open(url);
 };
+
 const Tabs = () => {
   const [activeCategory, setActiveCategory] = useState('All Areas');
   const [filteredServices, setFilteredServices] = useState(allServices);
@@ -193,12 +194,11 @@ const Tabs = () => {
           viewport={{ once: true, amount: 0.6 }}
           className='mb-8 m-auto max-w-5xl mt-10 md:mt-20 overflow-x-auto'
         >
-          <div className='flex  space-x-3 pb-4'>
+          <div className='flex space-x-3 pb-4'>
             {categories.map((category) => (
               <button
                 key={category}
-                className={` cursor-pointer px-5 py-2 border border-[#EEEEEE] shadow-lg rounded-full text-xs font-medium transition-colors duration-200 whitespace-nowrap
-                ${
+                className={`cursor-pointer px-5 py-2 border border-[#EEEEEE] shadow-lg rounded-full text-xs font-medium transition-colors duration-200 whitespace-nowrap ${
                   activeCategory === category
                     ? 'bg-[#C40716] text-white'
                     : 'bg-white text-[#333333] hover:bg-[#C40716] hover:text-white'
@@ -226,23 +226,23 @@ const Tabs = () => {
                 >
                   <div className='p-6 flex-grow'>
                     {/* Service Image */}
-                    <div className='relative  bg-gray-200'>
+                    <div className='relative bg-gray-200'>
                       <Image
                         src={service.image || '/placeholder.svg'}
                         alt={service.title}
                         className='w-full h-full object-cover rounded-lg'
                       />
                       {service.family && (
-                        <div className='absolute top-3 left-2 bg-[#000000B2]/80  text-white text-xs px-3 py-1.5 rounded-full'>
+                        <div className='absolute top-3 left-2 bg-[#000000B2]/80 text-white text-xs px-3 py-1.5 rounded-full'>
                           <p className='font-normal text-xs'>
-                            {service.family}{' '}
+                            {service.family}
                           </p>
                         </div>
                       )}
                     </div>
 
                     {/* Service Content */}
-                    <h3 className='text-lg font-normal mb-3 pt-5 '>
+                    <h3 className='text-lg font-normal mb-3 pt-5'>
                       {service.title}
                     </h3>
 
@@ -265,7 +265,7 @@ const Tabs = () => {
                     <ul className='space-y-2 mb-4'>
                       {service.features.map((feature, index) => (
                         <li key={index} className='flex items-start pt-3'>
-                          <span className=' text-xs bg-green-500 p-0.5 text-white  mr-2 '>
+                          <span className='text-xs bg-green-500 p-0.5 text-white mr-2'>
                             <i className='fas fa-check'></i>
                           </span>
                           <span className='text-sm text-[#171717]'>
@@ -300,7 +300,7 @@ const Tabs = () => {
                             </button>
                           ) : (
                             <a
-                              href='tel:+971 55 181 8633'
+                              href='tel:+971551818633'
                               className={buttonClasses}
                             >
                               <PhoneCall size={16} className='mr-1' />
