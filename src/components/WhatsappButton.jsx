@@ -7,6 +7,14 @@ const WhatsappButton = () => {
   const message = 'Hello! I am looking for Tyre Repair / Puncture Tyre Fix Service Onsite.';
 
   const handleClick = () => {
+    // GTM Conversion Tracking
+    if (typeof window !== 'undefined') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'whatsapp_conversion'
+      });
+    }
+
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
