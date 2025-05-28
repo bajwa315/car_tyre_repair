@@ -9,7 +9,7 @@ import WhatsappButton from './WhatsappButton';
 const emergency = [
   {
     image: curcle,
-    desc: 'On-spot tyre puncture repair',
+    desc: 'On-Site tyre puncture repair',
   },
   {
     image: curcle,
