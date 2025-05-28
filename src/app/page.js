@@ -15,10 +15,10 @@ const page = () => {
       <Header/>
       <Hero/>
       <ServiceCards/>
-      <Tabs>
+      <FeatureCards/>
       <Testimonials/>
       <FAQS/>
-      <FeatureCards/>
+      <Tabs/>
       <ContactForm/>
       <Footer/>
     </div>
