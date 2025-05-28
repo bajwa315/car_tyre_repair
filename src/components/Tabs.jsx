@@ -83,7 +83,7 @@ const allServices = [
   {
     id: 4,
     title: 'Mercedes GLE Flat Tyre Rescue',
-    family: ' 🌙 2AM Emergency',
+    family: ' 🌙 7AM Emergency',
     location: 'Arabian Ranches',
     time: ' 7:00 AM ',
     image: tab4,
