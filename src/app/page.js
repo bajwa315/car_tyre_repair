@@ -16,9 +16,9 @@ const page = () => {
       <Hero/>
       <ServiceCards/>
       <FeatureCards/>
+      <Tabs/>
       <Testimonials/>
       <FAQS/>
-      <Tabs/>
       <ContactForm/>
       <Footer/>
     </div>
