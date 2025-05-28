@@ -36,9 +36,9 @@ const testimonials = [
     location: 'Emirates Hills'
   },
   {
-    quote: "Used their winter tyre storage service - flawless organization and my tyres were returned in perfect condition. Will definitely use again next season.",
+    quote: "I was amazed by their wheel alignment service - my Mercedes drives like new again! Precision work with German standards right here in Dubai.",
     name: 'Thomas Müller',
-    role: 'Expat',
+    role: 'Automotive Engineer',
     location: 'Jumeirah Lakes Towers'
   }
 ];
@@ -111,32 +111,6 @@ const Testimonials = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Trust indicators */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-        >
-          <div className="p-4">
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">500+</div>
-            <div className="text-white/80 text-sm uppercase tracking-wider">Happy Clients</div>
-          </div>
-          <div className="p-4">
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
-            <div className="text-white/80 text-sm uppercase tracking-wider">Service Available</div>
-          </div>
-          <div className="p-4">
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">30min</div>
-            <div className="text-white/80 text-sm uppercase tracking-wider">Avg. Response</div>
-          </div>
-          <div className="p-4">
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
-            <div className="text-white/80 text-sm uppercase tracking-wider">Satisfaction</div>
-          </div>
-        </motion.div>
       </div>
     </div>
   );
