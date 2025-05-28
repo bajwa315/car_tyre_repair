@@ -18,9 +18,9 @@ const categories = [
   'Palm Jumeirah',
   'Arabian Ranches',
   'DAMAC Hills',
-  'Mudon',
+  'Bussiness Bay',
   'Emirates Hills',
-  'Business Bay',
+  'Mudon',
   'Dubai Marina',
 ];
 
@@ -31,7 +31,7 @@ const allServices = [
     family: ' 🏎️ Luxury Service',
     title: 'Lamborghini Urus Tyre Replacement',
     location: 'Palm Jumeirah',
-    time: '3:45 AM Service',
+    time: '6:00 AM Service',
     image: tab1,
     category: 'Palm Jumeirah',
     features: [
@@ -85,7 +85,7 @@ const allServices = [
     title: 'Mercedes GLE Flat Tyre Rescue',
     family: ' 🌙 2AM Emergency',
     location: 'Arabian Ranches',
-    time: ' 2:15 AM ',
+    time: ' 7:00 AM ',
     image: tab4,
     category: 'Arabian Ranches',
     features: [
@@ -102,10 +102,10 @@ const allServices = [
     id: 5,
     title: 'Corporate Fleet Maintenance',
     family: ' 🚗 Fleet Service',
-    location: 'Mudon',
+    location: 'Bussiness Bay',
     time: '8 Company Cars',
     image: tab5,
-    category: 'Mudon',
+    category: 'Bussiness Bay',
     features: [
       'After-hours servicing',
       'Detailed service reports',
@@ -120,10 +120,10 @@ const allServices = [
     id: 6,
     title: 'Vintage Porsche 911 Restoration',
     family: ' 🏎 Classic Car Care',
-    location: 'Business Bay',
+    location: 'Mudon',
     time: '🛠 Full Service',
     image: tab6,
-    category: 'Business Bay',
+    category: 'Mudon',
     features: [
       'Specialist classic car tools',
       'Period-correct tyres available',
