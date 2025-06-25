@@ -103,7 +103,7 @@ const Footer =() => {
       </footer>
       <div className='bg-white py-2  mt-2'>
         <p className='py-3 text-center text-sm font-normal '>
-          Copyright © 2025 Car-Tyre-Repair.Com All Rights Reserved.
+          Copyright © 2025 Bajwa Mobile Auto Repair Services All Rights Reserved.
         </p>
       </div>
     </div>
