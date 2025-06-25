@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
-import logo from '../assets/logo2.jpg';
+import logo from '../assets/logo5.jpg';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
