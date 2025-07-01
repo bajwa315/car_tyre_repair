@@ -58,8 +58,8 @@ const Header = () => {
           <Image
             src={logo}
             alt='CARCAS Logo'
-            width={200}
-            height={100}
+            width={150}
+            height={90}
             className='md:h-20 h-12 w-24 md:w-40'
           />
         </div>
