@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
-import logo from '../assets/logo5.jpg';
+import logo from '../assets/logo6.jpg';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -58,8 +58,8 @@ const Header = () => {
           <Image
             src={logo}
             alt='CARCAS Logo'
-            width={150}
-            height={90}
+            width={200}
+            height={100}
             className='md:h-20 h-12 w-24 md:w-40'
           />
         </div>
