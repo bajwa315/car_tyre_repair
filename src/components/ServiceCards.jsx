@@ -9,6 +9,9 @@ import tyer3 from '../assets/tyer3.png';
 import tyer4 from '../assets/tyer4.png';
 import tyer5 from '../assets/tyer5.png';
 import tyer6 from '../assets/tyre-6.png';
+import tyer7 from '../assets/tyer7.png'; // Added for Premium Tyre Puncture Repair
+import tyer8 from '../assets/tyer8.png'; // Added for Buy New Tyres Online
+import tyer9 from '../assets/tyer9.png'; // Added for Tyre Air Valve Replacement
 
 const services = [
   {
@@ -85,7 +88,7 @@ const services = [
     li2: '20-minute average response time',
     li3: '60-day warranty on all repairs',
     li4: 'TPMS sensor-safe solutions',
-    image: tyer5, // Placeholder - replace with actual image import
+    image: tyer7,
     button: 'Fix My Puncture Now',
   },
   {
@@ -96,7 +99,7 @@ const services = [
     li2: 'Free mobile installation in Dubai',
     li3: 'Expert tyre recommendations',
     li4: 'Complete wheel balancing included',
-    image: tyer2, // Placeholder - replace with actual image import
+    image: tyer8,
     button: 'Order Tyres Now',
   },
   {
@@ -107,7 +110,7 @@ const services = [
     li2: 'TPMS valve specialists',
     li3: 'Prevents air leaks and pressure loss',
     li4: '15-minute mobile service',
-    image: tyer6, // Placeholder - replace with actual image import
+    image: tyer9,
     button: 'Replace My Valves',
   },
 ];
