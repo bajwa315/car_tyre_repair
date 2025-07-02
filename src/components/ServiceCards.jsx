@@ -77,7 +77,41 @@ const services = [
     image: tyer6,
     button: 'Check My Tyre Pressure',
   },
+  {
+    id: 7,
+    title: 'Premium Tyre Puncture Repair',
+    description: 'Advanced puncture sealing technology for reliable, long-lasting fixes',
+    li1: 'Premium internal patch repairs',
+    li2: '20-minute average response time',
+    li3: '60-day warranty on all repairs',
+    li4: 'TPMS sensor-safe solutions',
+    image: tyer5, // Placeholder - replace with actual image import
+    button: 'Fix My Puncture Now',
+  },
+  {
+    id: 8,
+    title: 'Buy New Tyres Online',
+    description: 'Shop top tyre brands with mobile installation included',
+    li1: 'Best prices on Michelin, Pirelli, Bridgestone',
+    li2: 'Free mobile installation in Dubai',
+    li3: 'Expert tyre recommendations',
+    li4: 'Complete wheel balancing included',
+    image: tyer2, // Placeholder - replace with actual image import
+    button: 'Order Tyres Now',
+  },
+  {
+    id: 9,
+    title: 'Tyre Air Valve Replacement',
+    description: 'Professional valve stem replacement for optimal tyre performance',
+    li1: 'High-quality rubber & metal valves',
+    li2: 'TPMS valve specialists',
+    li3: 'Prevents air leaks and pressure loss',
+    li4: '15-minute mobile service',
+    image: tyer6, // Placeholder - replace with actual image import
+    button: 'Replace My Valves',
+  },
 ];
+
 const ServiceCards = () => {
   return (
     <div id='about' className=''>
