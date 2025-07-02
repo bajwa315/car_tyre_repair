@@ -77,7 +77,41 @@ const services = [
     image: tyer6,
     button: 'Check My Tyre Pressure',
   },
-  ];
+  {
+    id: 7,
+    title: 'Premium Tyre Puncture Repair',
+    description: 'Advanced puncture sealing technology for reliable, long-lasting fixes',
+    li1: 'Premium internal patch repairs',
+    li2: '20-minute average response time',
+    li3: '60-day warranty on all repairs',
+    li4: 'TPMS sensor-safe solutions',
+    image: tyer5, // Reusing existing image
+    button: 'Fix My Puncture Now',
+  },
+  {
+    id: 8,
+    title: 'Tyre Rotation & Balancing',
+    description: 'Extend tyre life with our professional rotation and balancing service',
+    li1: 'Computerized wheel balancing',
+    li2: 'Proper rotation patterns',
+    li3: 'Extended tyre lifespan',
+    li4: 'Improved vehicle handling',
+    image: tyer2, // Reusing existing image
+    button: 'Schedule Rotation',
+  },
+  {
+    id: 9,
+    title: 'Tyre Valve Replacement',
+    description: 'Professional valve stem services for optimal tyre performance',
+    li1: 'High-quality valve replacements',
+    li2: 'Prevents air leaks',
+    li3: 'TPMS compatible',
+    li4: 'Quick 15-minute service',
+    image: tyer6, // Reusing existing image
+    button: 'Replace Valves Now',
+  },
+];
+
 const ServiceCards = () => {
   return (
     <div id='about' className=''>
