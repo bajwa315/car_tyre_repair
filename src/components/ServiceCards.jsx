@@ -9,6 +9,9 @@ import tyer3 from '../assets/tyer3.png';
 import tyer4 from '../assets/tyer4.png';
 import tyer5 from '../assets/tyer5.png';
 import tyer6 from '../assets/tyre-6.png';
+import tyer7 from '../assets/tyer7.png';
+import tyer8 from '../assets/tyer8.png';
+import tyer9 from '../assets/tyer9.png';
 
 const services = [
   {
@@ -85,7 +88,7 @@ const services = [
     li2: '20-minute average response time',
     li3: '60-day warranty on all repairs',
     li4: 'TPMS sensor-safe solutions',
-    image: tyer5, // Reusing existing image
+    image: tyer7,
     button: 'Fix My Puncture Now',
   },
   {
@@ -96,7 +99,7 @@ const services = [
     li2: 'Free mobile installation in Dubai',
     li3: 'Expert tyre recommendations',
     li4: 'Complete wheel balancing included',
-    image: tyer2, // Reusing existing image
+    image: tyer8,
     button: 'Order Tyres Now',
   },
   {
@@ -107,7 +110,7 @@ const services = [
     li2: 'Prevents air leaks',
     li3: 'TPMS compatible',
     li4: 'Quick 15-minute service',
-    image: tyer6, // Reusing existing image
+    image: tyer9,
     button: 'Replace Valves Now',
   },
 ];
