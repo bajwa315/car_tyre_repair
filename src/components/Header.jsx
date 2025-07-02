@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import phone from '../assets/phone.png';
-import logo from '../assets/logo4.jpg';
+import logo from '../assets/logo7.jpg';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -54,15 +54,14 @@ const Header = () => {
     <header id='Home' className='bg-[#00000042] relative z-50 text-white'>
       <div className='Mycontainer gap-2 max-sm:gap-6 flex sm:justify-between items-center'>
         {/* Logo */}
-        <div className='flex items-center'>
-          <Image
-            src={logo}
-            alt='CARCAS Logo'
-            width={200}
-            height={100}
-            className='md:h-20 h-12 w-24 md:w-40'
-          />
-        </div>
+<div className="flex items-center">
+  <Image
+    src={logo}
+    alt="CARCAS Logo"
+    className="h-12 w-auto md:h-20"
+    priority
+  />
+</div>
 
         {/* Desktop Navigation - Hidden on mobile */}
         <nav className='hidden sm:flex gap-6 text-lg font-medium relative'>
