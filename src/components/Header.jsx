@@ -23,14 +23,17 @@ const Header = () => {
     setShowContactOptions(!showContactOptions);
   };
 
-  const services = [
-    { id: 1, title: '24/7 Emergency Tyre Change' },
-    { id: 2, title: 'New Tyre Replacement' },
-    { id: 3, title: 'Emergency Spare Tyre Service' },
-    { id: 4, title: 'Alloy Rim Repair Service' },
-    { id: 5, title: 'Flat Tyre Repair Service' },
-    { id: 6, title: 'Tyre Air Pressure Service' },
-  ];
+const services = [
+  { id: 1, title: 'Flat Tyre Repair Service' },
+  { id: 2, title: 'Buy New Tyres Online' },
+  { id: 3, title: 'Premium Tyre Puncture Repair' },
+  { id: 4, title: 'Emergency Spare Tyre Service' },
+  { id: 5, title: '24/7 Emergency Tyre Change' },
+  { id: 6, title: 'New Tyre Replacement' },
+  { id: 7, title: 'Alloy Rim Repair Service' },
+  { id: 8, title: 'Tyre Air Pressure Service' },
+  { id: 9, title: 'Tyre Valve Replacement' }
+];
 
   const navigateToSection = (hash) => {
     // Close all menus
