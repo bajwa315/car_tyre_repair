@@ -94,9 +94,9 @@ const services = [
   {
     id: 8,
     title: 'Buy New Tyres Online',
-    description: 'Shop top tyre brands with mobile installation included',
+    description: 'Shop top tyre brands with mobile installation',
     li1: 'Best prices on Michelin, Pirelli, Bridgestone',
-    li2: 'Free mobile installation in Dubai',
+    li2: 'mobile installation in Dubai',
     li3: 'Expert tyre recommendations',
     li4: 'Complete wheel balancing included',
     image: tyer8,
