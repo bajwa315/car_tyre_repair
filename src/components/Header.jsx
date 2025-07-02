@@ -72,7 +72,7 @@ const Header = () => {
               onClick={toggleServices}
               className='flex items-center gap-1'
             >
-              About Us
+              Services
               <span className={`transition-transform ${showServices ? 'rotate-180' : ''}`}>
                 <i className='fa-solid fa-chevron-down text-sm'></i>
               </span>
@@ -95,7 +95,7 @@ const Header = () => {
               </div>
             )}
           </div>
-          <a href='#service'>Services</a>
+          <a href='#service'>Latest Work</a>
           <a href='#faq'>FAQ</a>
           <a href='#testimonials'>Testimonial</a>
           <div className='relative'>
@@ -192,7 +192,7 @@ const Header = () => {
               }}
               className='flex items-center justify-between w-full'
             >
-              About Us
+              Services
               <span className={`transition-transform ${showServices ? 'rotate-180' : ''}`}>
                 <i className='fa-solid fa-chevron-down text-sm'></i>
               </span>
@@ -217,7 +217,7 @@ const Header = () => {
             )}
           </div>
           <a href='#service' onClick={toggleSidebar}>
-            Services
+            Latest Work
           </a>
           <a href='#faq' onClick={toggleSidebar}>
             FAQ
