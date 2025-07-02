@@ -90,14 +90,14 @@ const services = [
   },
   {
     id: 8,
-    title: 'Tyre Rotation & Balancing',
-    description: 'Extend tyre life with our professional rotation and balancing service',
-    li1: 'Computerized wheel balancing',
-    li2: 'Proper rotation patterns',
-    li3: 'Extended tyre lifespan',
-    li4: 'Improved vehicle handling',
+    title: 'Buy New Tyres Online',
+    description: 'Shop top tyre brands with mobile installation included',
+    li1: 'Best prices on Michelin, Pirelli, Bridgestone',
+    li2: 'Free mobile installation in Dubai',
+    li3: 'Expert tyre recommendations',
+    li4: 'Complete wheel balancing included',
     image: tyer2, // Reusing existing image
-    button: 'Schedule Rotation',
+    button: 'Order Tyres Now',
   },
   {
     id: 9,
